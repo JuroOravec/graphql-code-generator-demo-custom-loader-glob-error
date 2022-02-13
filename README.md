@@ -58,7 +58,7 @@ The naive implementation fails because the loader is given the glob pattern (`sr
 
   1. The loader interprets the glob as a regular path to a single file. The loader will fail to read the file as no such file exists.
 
-  2. The loader interprets the glob as a glob pattern. We find a list of files matching the pattern. The loader returns an array of processed GraphQL documents. **However**, codegen throws error because we return an array from the custom loader.
+  2. The loader interprets the glob as a glob pattern. It finds a list of files matching the pattern. The loader returns an array of processed GraphQL documents. **However**, codegen throws error because it got an array of documents from the custom loader.
 
 ### Workaround implementation
 
