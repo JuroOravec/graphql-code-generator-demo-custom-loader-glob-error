@@ -1,0 +1,21 @@
+overwrite: true
+schema: src/graphql.schema.json
+documents:
+  # The "GRIDSOME_QUERY_SOURCE_GLOB" comment (with underscores) is used to
+  # tag glob patterns for which we automatically extract gridsome queries
+  # and populate them here.
+  #
+  # This is used because, unfortunately, custom loaders for glob patterns
+  # are broken (see https://github.com/dotansimha/graphql-code-generator/issues/6543).
+  #
+  - src/**/*.vue:
+      # __GRIDSOME_QUERY_SOURCE_GLOB__
+      loader: ./scripts/gridsomeQueryDocumentLoader.js
+  - src/App.vue:
+      #__GRIDSOME_QUERY_AUTOGEN__
+      loader: ./scripts/gridsomeQueryDocumentLoader.js
+generates:
+  src/__generated__/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
